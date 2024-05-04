@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1714708943;_ci_previous_url|s:35:"http://digital.test/index.php/login";_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:2:{s:7:"usuario";s:5:"nuevo";s:8:"password";s:6:"123456";}}__ci_vars|a:2:{s:13:"_ci_old_input";s:3:"old";s:5:"error";s:3:"old";}error|s:17:"Usuario no existe";
