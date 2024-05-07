@@ -54,7 +54,6 @@ $(document).ready(function () {
         // Mostrar el total del carrito
         var totalHTML = '<h5>Total del carrito</h5>' +
             '<ul>' +
-            '<li>Subtotal <span>$' + cartTotal.toFixed(2) + '</span></li>' +
             '<li>Total <span>$' + cartTotal.toFixed(2) + '</span></li>' +
             '</ul>' +
             '<a href="' + base_url + 'checkout" class="primary-btn">PROCESAR</a>';

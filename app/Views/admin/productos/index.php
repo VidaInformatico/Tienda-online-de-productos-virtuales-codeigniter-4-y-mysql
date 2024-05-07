@@ -45,9 +45,9 @@
             "columns": [{
                     "data": null,
                     "render": function(data, type, row) {
-                        return '<a href="<?= base_url('admin/productos'); ?>/' + row.id + '/galeria" class="btn btn-primary">Galeria</a>' +
-                            '<a href="<?= base_url('admin/productos'); ?>/' + row.id + '/edit" class="btn btn-warning">Editar</a>' +
-                            '<a href="#" class="btn btn-danger" onclick="confirmDelete(' + row.id + ')">Eliminar</a>';
+                        return '<a href="<?= base_url('admin/productos'); ?>/' + row.id + '/galeria" class="btn btn-primary"><i class="fas fa-images"></i></a>' +
+                            '<a href="<?= base_url('admin/productos'); ?>/' + row.id + '/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>' +
+                            '<a href="#" class="btn btn-danger" onclick="confirmDelete(' + row.id + ')"><i class="fas fa-times-circle"></i></a>';
                     }
                 },
                 {

@@ -42,6 +42,10 @@ class CreatePedidosTable extends Migration
             'fecha' => [
                 'type' => 'DATETIME'
             ],
+            'leido' => [
+                'type' => 'INT',
+                'default' => 1
+            ],
             'id_usuario' => [
                 'type' => 'INT',
                 'constraint' => 5,

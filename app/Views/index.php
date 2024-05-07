@@ -10,17 +10,26 @@
 <!-- Categories Section Begin -->
 <section class="categories">
     <div class="container">
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-                <?php foreach ($categorias as $categoria) { ?>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="<?= base_url('img/' . $categoria['imagen']); ?>">
-                            <h5><a href="<?= base_url('categorias/' . $categoria['slug']); ?>"><?= $categoria['nombre']; ?></a></h5>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
+        <div class="section-title">
+            <h2>Top productos</h2>
         </div>
+        <?php if (!empty($tops)) { ?>
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <?php foreach ($tops as $producto) { ?>
+                        <div class="col-lg-3">
+                            <div class="categories__item set-bg" data-setbg="<?= base_url('img/' . $producto['imagen']); ?>">
+                                <h5><a href="<?= base_url('productos/' . $producto['slug']); ?>"><?= $producto['producto']; ?></a></h5>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                No hay productos
+            </div>
+        <?php } ?>
     </div>
 </section>
 <!-- Categories Section End -->

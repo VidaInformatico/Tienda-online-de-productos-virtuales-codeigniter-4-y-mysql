@@ -1,5 +1,9 @@
 <?= $this->extend('admin_layout') ?>
 
+<?= $this->section('css') ?>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 
 <div class="card">
@@ -29,10 +33,7 @@
                 <label>Precio Rebajado</label>
                 <input type="text" name="precio_rebajado" class="form-control" value="<?= set_value('precio_rebajado', $producto['precio_rebajado']) ?>" placeholder="Precio Rebajado" >
             </div>
-            <div class="form-group col-md-6 mb-3">
-                <label>Descripción</label>
-                <textarea name="descripcion" class="form-control" placeholder="Descripción"><?= set_value('descripcion', $producto['descripcion']) ?></textarea>
-            </div>
+            
             <!-- En tu vista del formulario -->
             <div class="form-group col-md-6 mb-3">
                 <label>Categoria</label>
@@ -47,13 +48,21 @@
             </div>
 
             <div class="form-group col-md-6 mb-3">
-                <label>Imagen</label>
-                <input type="file" name="imagen" class="form-control">
+                <label>Archivo</label>
+                <input type="file" name="archivo_zip" class="form-control">
             </div>
 
             <div class="form-group col-md-6 mb-3">
-                <label>Archivo</label>
-                <input type="file" name="archivo_zip" class="form-control">
+                <label>Descripción</label>
+                <textarea name="descripcion" id="descripcion" class="form-control" placeholder="Descripción"><?= set_value('descripcion', $producto['descripcion']) ?></textarea>
+            </div>
+
+            <div class="form-group col-md-6 mb-3">
+                <label>Imagen</label>
+                <input type="file" name="imagen" id="imageInput" class="form-control">
+                <div id="imagePreview">
+                    <img src="<?= base_url('img/'. $producto['imagen']); ?>" width="100%">
+                </div>
             </div>
 
             <div class="col-md-12 text-end">
@@ -64,4 +73,39 @@
     </div>
 </div>
 
+<?= $this->endSection() ?>
+
+<?= $this->section('js') ?>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#descripcion').summernote({
+            placeholder: 'Descripcion del producto',
+            tabsize: 2,
+            height: 100
+        });
+
+        document.getElementById("imageInput").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById("imagePreview");
+                    imagePreview.innerHTML = ""; // Limpiar cualquier contenido anterior
+
+                    const img = document.createElement("img");
+                    img.src = e.target.result; // URL de la imagen seleccionada
+                    img.style.maxWidth = "100%"; // Ajustar tamaño para evitar desbordamientos
+                    img.style.height = "auto";
+
+                    imagePreview.appendChild(img); // Agregar la imagen al contenedor
+                };
+
+                reader.readAsDataURL(file); // Leer el archivo como URL de datos
+            }
+        });
+    });
+</script>
 <?= $this->endSection() ?>

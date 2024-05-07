@@ -167,8 +167,8 @@ class ProductoController extends BaseController
                 $imagen = $this->request->getFile('imagen');
                 if (!empty($imagen->getName())) {
                     // Elimina la imagen anterior si existe
-                    if ($producto['imagen'] && file_exists(ROOTPATH . 'public/' . $producto['imagen'])) {
-                        unlink(ROOTPATH . 'public/' . $producto['imagen']);
+                    if ($producto['imagen'] && file_exists(ROOTPATH . 'public/img/' . $producto['imagen'])) {
+                        unlink(ROOTPATH . 'public/img/' . $producto['imagen']);
                     }
 
                     // Genera un título único para la nueva imagen
@@ -223,8 +223,8 @@ class ProductoController extends BaseController
     {
         $productoModel = new Producto();
         $producto = $productoModel->find($id);
-        if ($producto['imagen'] && file_exists(ROOTPATH . 'public/' . $producto['imagen'])) {
-            unlink(ROOTPATH . 'public/' . $producto['imagen']);
+        if ($producto['imagen'] && file_exists(ROOTPATH . 'public/img/' . $producto['imagen'])) {
+            unlink(ROOTPATH . 'public/img/' . $producto['imagen']);
         }
 
         $data = $productoModel->delete($id);

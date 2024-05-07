@@ -62,6 +62,7 @@ class AdminController extends BaseController
         $detallePedidoModel = new DetallePedido();
         foreach ($productos as $producto) {
             $detallePedidoData = [
+                'producto' => $producto->nombre,
                 'precio' => $producto->precio,
                 'cantidad' => $producto->quantity,
                 'id_pedido' => $pedidoId,
@@ -85,7 +86,7 @@ class AdminController extends BaseController
         $data['productos'] = $detalleModel->select('detallepedidos.*, p.titulo')
         ->join('productos p', 'detallepedidos.id_producto = p.id')
         ->where('detallepedidos.id_pedido', $id)
-        ->findAll($id);
+        ->findAll();
         //ACTUALIZAR COMO LEIDO
         $pedidoModel = new Pedido();
         $pedidoModel->update($id, ['leido' => 0]);

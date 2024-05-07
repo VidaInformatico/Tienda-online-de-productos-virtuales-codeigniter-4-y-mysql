@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?= base_url('principal'); ?>/css/slicknav.min.css" type="text/css">
 
     <link rel="stylesheet" href="<?= base_url('principal'); ?>/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('principal'); ?>/css/custom.css" type="text/css">
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -29,6 +30,31 @@
 </head>
 
 <body>
+    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
+        <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+
+    <div class="container-bar">
+        <input type="checkbox" id="btn-social">
+        <label for="btn-social" class="fa fa-play"></label>
+        <div class="icon-social">
+            <a href="<?= $empresa['facebook']; ?>" class="fa fa-facebook">
+                <span id="title">Facebook</span>
+            </a>
+            <a href="<?= $empresa['twitter']; ?>" class="fa fa-twitter">
+                <span id="title">Twitter</span>
+            </a>
+            <a href="<?= $empresa['whatsapp']; ?>" class="fa fa-whatsapp">
+                <span id="title">WhatsApp</span>
+            </a>
+            <a href="<?= $empresa['instagram']; ?>" class="fa fa-instagram">
+                <span id="title">Instagram</span>
+            </a>
+        </div>
+    </div>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -77,35 +103,7 @@
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> <?= $empresa['correo']; ?></li>
-                                <li><?= $empresa['mensaje']; ?></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="<?= $empresa['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a href="<?= $empresa['twitter']; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="<?= $empresa['instagram']; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
-                                <a href="<?= $empresa['whatsapp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a>
-                            </div>
-
-                            <div class="header__top__right__auth">
-                                <a href="<?= base_url('login'); ?>"><i class="fa fa-user"></i> Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header class="header fixed-menu">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -128,6 +126,7 @@
                         <ul>
                             <li><a href="<?= base_url('deseo'); ?>"><i class="fa fa-heart"></i> <span id="wishlist-count">0</span></a></li>
                             <li><a href="<?= base_url('carrito'); ?>"><i class="fa fa-shopping-bag"></i> <span id="cart-count">0</span></a></li>
+                            <li><a href="<?= base_url('login'); ?>"><i class="fa fa-user"></i></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span id="cart-total">$0.00</span></div>
                     </div>
@@ -142,7 +141,7 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="<?= $class; ?>">
+    <section class="<?= $class; ?> content">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -153,7 +152,10 @@
                         </div>
                         <ul>
                             <?php foreach ($categorias as $categoria) { ?>
-                                <li><a href="<?= base_url('categorias/' . $categoria['slug']); ?>"><?php echo $categoria['nombre']; ?></a></li>
+                                <a class="d-flex justify-content-between p-2 tops" href="<?= base_url('categorias/' . $categoria['slug']); ?>">
+                                    <div><?php echo $categoria['nombre']; ?></div>
+                                    <img src="<?= base_url('img/' . $categoria['imagen']); ?>" alt="img" width="50px">
+                                </a>
                             <?php } ?>
                         </ul>
                     </div>

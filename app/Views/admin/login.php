@@ -123,6 +123,9 @@
                     <button class="btn transparent" id="sign-up-btn">
                         Registro
                     </button>
+
+                    <a class="text-danger" href="<?= base_url(); ?>">Regresar</a>
+                    
                 </div>
                 <img src="<?= base_url('img/log.svg'); ?>" class="image" alt="" />
             </div>
@@ -136,6 +139,8 @@
                     <button class="btn transparent" id="sign-in-btn">
                         Login
                     </button>
+
+                    <a class="text-danger" href="<?= base_url(); ?>">Regresar</a>
                 </div>
                 <img src="<?= base_url('img/register.svg'); ?>" class="image" alt="" />
             </div>

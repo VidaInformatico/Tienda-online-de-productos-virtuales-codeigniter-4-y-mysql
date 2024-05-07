@@ -107,11 +107,13 @@ class CategoriaController extends BaseController
                     'slug' => $this->createSlug($this->request->getPost('nombre'))
                 ];
 
+                $imagen = $this->request->getFile('imagen');
+
                 // Si se proporciona una nueva imagen, actualiza la imagen
-                if ($imagen = $this->request->getFile('imagen')) {
+                if ($imagen->isValid() && !$imagen->hasMoved()) {
                     // Elimina la imagen anterior si existe
-                    if ($categoria['imagen'] && file_exists(ROOTPATH . 'public/' . $categoria['imagen'])) {
-                        unlink(ROOTPATH . 'public/' . $categoria['imagen']);
+                    if ($categoria['imagen'] && file_exists(ROOTPATH . 'public/img/' . $categoria['imagen'])) {
+                        unlink(ROOTPATH . 'public/img/' . $categoria['imagen']);
                     }
 
                     // Genera un nombre único para la nueva imagen
@@ -139,8 +141,8 @@ class CategoriaController extends BaseController
     {
         $categoriaModel = new Categoria();
         $categoria = $categoriaModel->find($id);
-        if ($categoria['imagen'] && file_exists(ROOTPATH . 'public/' . $categoria['imagen'])) {
-            unlink(ROOTPATH . 'public/' . $categoria['imagen']);
+        if ($categoria['imagen'] && file_exists(ROOTPATH . 'public/img/' . $categoria['imagen'])) {
+            unlink(ROOTPATH . 'public/img/' . $categoria['imagen']);
         }
 
         $data = $categoriaModel->delete($id);

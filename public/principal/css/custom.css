@@ -1,3 +1,117 @@
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que el menú abarque todo el ancho de la página */
+    z-index: 1000; /* Para asegurar que el menú esté encima de otros elementos */
+    background-color: #fff; /* O el color que desees para el menú */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Para agregar un pequeño efecto de sombra */
+  }
+  
+  .content {
+    margin-top: 140px; /* Ajusta según la altura del menú */
+  }
+  
+.container-bar{
+	width: 100%;
+	max-width: 50px;
+	position: fixed;
+	left: 0;
+	top: 25%;
+    z-index: 9999;
+}
+.container-bar a{
+	display: block;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 18px;
+	position: relative;
+	transition: all 500ms ease;
+	color: #fff;
+}
+.container-bar a:hover{
+	background: #1c1c1c;
+}
+.container-bar .fa-facebook{
+	background: #3b5998;
+	border-radius: 0px 5px 0px 0px;
+}
+.container-bar .fa-whatsapp{
+	background: #23e567;
+}
+.container-bar .fa-twitter{
+	background: #00acee;
+}
+.container-bar .fa-instagram{
+	background: #c8232c;
+	border-radius: 0px 0px 5px 0px;
+}
+.container-bar #title{
+	position: absolute;
+	background: #1c1c1c;
+	padding: 0px 8px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 3px;
+	font-size: 15px;
+	top:12px; left: 0px;
+	transition: all 500ms ease;
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+}
+.container-bar a:hover #title{
+	opacity: 1;
+	visibility: visible;
+	left: 64px;
+}
+.container-bar #title:after{
+	position: absolute;
+	content: '';
+	border-left: 7px solid transparent;
+	border-right: 6px solid #1c1c1c;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	right: 100%;
+	top: 8px;
+}
+#btn-social{
+	display: none;
+}
+.fa-play{
+	cursor: pointer;
+	transition: all 0.4s;
+	font-size: 12px;
+	margin-bottom: 5px;
+	display: inline-block;
+	transform: rotate(180deg);
+	color: #49b0e6;
+}
+#btn-social:checked ~ .fa-play{
+	transform: rotate(0deg);
+}
+.icon-social{
+	transition: all 0.4s;
+	transform: translateX(0%);
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+}
+#btn-social:checked ~ .icon-social{
+	transform: translateX(-100%);
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.0);
+}
+
+.tops:hover{
+	background-color: rgb(0, 145, 255);
+	transition: all 1s;
+	cursor: pointer;
+	color: white;
+}
+
+
 /* component */
 
 .star-rating {
@@ -26,3 +140,15 @@
 .star-rating label:hover~label {
     color: #fc0;
 }
+
+.ir-arriba{
+	display:none;
+	background-repeat:no-repeat;
+	font-size:20px;
+	color:black;
+	cursor:pointer;
+	position:fixed;
+	bottom:40px;
+	right:10px;
+	z-index:2;
+  }

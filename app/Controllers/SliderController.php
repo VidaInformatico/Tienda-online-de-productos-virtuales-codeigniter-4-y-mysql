@@ -116,13 +116,13 @@ class SliderController extends BaseController
                     'subtitulo' => $this->request->getPost('subtitulo'),
                     'descripcion' => $this->request->getPost('descripcion'),
                 ];
+                // Obtén la instancia del archivo
                 $imagen = $this->request->getFile('imagen');
 
-                // Si se proporciona una nueva imagen, actualiza la imagen
-                if ($imagen) {
+                if ($imagen->isValid() && !$imagen->hasMoved()) {
                     // Elimina la imagen anterior si existe
-                    if ($slider['imagen'] && file_exists(ROOTPATH . 'public/' . $slider['imagen'])) {
-                        unlink(ROOTPATH . 'public/' . $slider['imagen']);
+                    if ($slider['imagen'] && file_exists(ROOTPATH . 'public/img/' . $slider['imagen'])) {
+                        unlink(ROOTPATH . 'public/img/' . $slider['imagen']);
                     }
 
                     // Genera un titulo único para la nueva imagen
@@ -150,8 +150,8 @@ class SliderController extends BaseController
     {
         $categoriaModel = new Slider();
         $slider = $categoriaModel->find($id);
-        if ($slider['imagen'] && file_exists(ROOTPATH . 'public/' . $slider['imagen'])) {
-            unlink(ROOTPATH . 'public/' . $slider['imagen']);
+        if ($slider['imagen'] && file_exists(ROOTPATH . 'public/img/' . $slider['imagen'])) {
+            unlink(ROOTPATH . 'public/img/' . $slider['imagen']);
         }
 
         $data = $categoriaModel->delete($id);

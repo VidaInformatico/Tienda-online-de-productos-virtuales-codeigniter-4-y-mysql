@@ -731,7 +731,13 @@ ol {
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+	position: relative;
 	
+}
+
+.hero__text{
+    position: absolute;
+    left: 10px;
 }
 
 .hero__text span {
@@ -739,11 +745,11 @@ ol {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 4px;
-	color: #3988ff;
+	color: white;
 }
 
 .hero__text h2 {
-	font-size: 46px;
+	font-size: 36px;
 	color: #252525;
 	line-height: 52px;
 	font-weight: 700;
@@ -752,6 +758,7 @@ ol {
 
 .hero__text p {
 	margin-bottom: 35px;
+	color: white;
 }
 
 /*---------------------

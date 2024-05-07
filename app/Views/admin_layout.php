@@ -145,6 +145,7 @@
     <script src="<?= base_url('admins/'); ?>assets/plugins/pace/pace.min.js"></script>
     <script src="<?= base_url('admins/'); ?>assets/js/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?= base_url('admins/'); ?>assets/js/all.min.js"></script>
     <script src="<?= base_url(); ?>plugin/datatables/datatables.min.js"></script>
     <script>
         const base_url = '<?= base_url(); ?>';
