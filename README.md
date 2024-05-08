@@ -45,3 +45,54 @@ Además, asegúrate de que las siguientes extensiones estén habilitadas en tu P
 - json (habilitado por defecto - no lo deshabilites)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) si planeas usar MySQL
 - [libcurl](http://php.net/manual/en/curl.requirements.php) si planeas usar la librería HTTP\CURLRequest
+
+
+# Instalación y Configuración
+
+Descargar o clonar el proyecto.
+
+
+## Instalación
+
+
+```bash
+  cd mi-proyect-name
+  composer install
+```
+    
+## Conexión MySQL (.env)
+```bash
+  database.default.hostname = localhost
+  database.default.database = digital
+  database.default.username = root
+  database.default.password = 
+  database.default.DBDriver = MySQLi
+  database.default.DBPrefix =
+  database.default.port = 3306
+```
+## baseURL (.env)
+
+Agregar la url de como se accede al proyecto en el navegador:
+```bash
+  app.baseURL = 'http://digital.test/'
+```
+## Migraciones
+Una vez creado la base de datos y cambiado la conexión.
+
+```bash
+  php spark migrate
+```
+
+## Seeder y factory
+Ejecutar seeder
+
+```bash
+  php spark db:seed MainSeeder
+```
+
+## Usuario Administrador Generado
+
+```bash
+  Correo: admin@gmail.com
+  Clae : admin123
+```
