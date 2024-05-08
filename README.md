@@ -1,5 +1,7 @@
 # Framework CodeIgniter 4
 
+<img width="960" alt="virtual" src="https://github.com/VidaInformatico/Tienda-online-de-productos-virtuales-codeigniter-4-y-mysql/assets/71534078/a36abdbd-6973-46ac-b202-5a1486aa1ba4">
+
 ## ¿Qué es CodeIgniter?
 
 CodeIgniter es un framework web full-stack para PHP que es ligero, rápido, flexible y seguro. Puedes encontrar más información en el [sitio oficial](https://codeigniter.com).
