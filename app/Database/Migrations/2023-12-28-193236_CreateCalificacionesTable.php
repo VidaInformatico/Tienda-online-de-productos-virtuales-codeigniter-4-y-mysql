@@ -22,10 +22,12 @@ class CreateCalificacionesTable extends Migration
                 'type' => 'INTEGER',
             ],
             'created_at' => [
-                'type' => 'TIMESTAMP'
+                'type' => 'DATETIME',
+                'null' => true
             ],
             'updated_at' => [
-                'type' => 'TIMESTAMP'
+                'type' => 'DATETIME',
+                'null' => true
             ],
             'id_producto' => [
                 'type' => 'INT',
